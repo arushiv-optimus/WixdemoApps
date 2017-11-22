@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="HelloWix" Language="1033" Version="1.0.0.1" Manufacturer="Avigilon" UpgradeCode="6760EC82-6621-44C3-98CA-579FE77C46E5">
+    <Package Description="Simple Demo" Compressed="yes" />
+
+    <MediaTemplate EmbedCab="yes" />
+   
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Directory 1 (Program Files) -->
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="HelloWiX" />
+      </Directory>
+    </Directory>
+
+    <!-- Component Represents a group of items that are install as a unit -->
+    <Component Id="TextFileComponent" Directory="INSTALLFOLDER">
+      <File Source="C:\Users\radha.bisht\Desktop\WixDemo\HelloWix.txt" />
+    </Component>
+
+    <Component Id="TextFileComponent2" Directory="INSTALLFOLDER">
+      <File Source="C:\Users\radha.bisht\Desktop\WixDemo2\HelloWix2.txt" />
+    </Component>
+    
+    <Feature Id="MainFeature" Title="HelloWiX" Level="1">
+      <ComponentRef Id="TextFileComponent" />
+      <ComponentRef Id="TextFileComponent2" />
+    </Feature>    
+  </Product>
+</Wix>
