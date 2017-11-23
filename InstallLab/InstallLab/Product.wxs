@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:ui="http://schemas.microsoft.com/wix/UIExtension">
+  
+  <Product Id="*" Name="InstallLab" Language="1033" Version="1.0.0.0" Manufacturer="Avigilon" UpgradeCode="f1aee4a2-d90e-4a36-98e4-1d1d8c96096b">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <MediaTemplate EmbedCab="yes" />
+ 
+     <UIRef Id="WixUI_Minimal" />
+    <!-- Uninstalls the InstallLab Sample Application -->
+    <Component Id="UninstallShortcut" Guid="*" Directory="InstallLabShortcuts">
+      <Shortcut Id="UninstallThisProduct"
+                Name="Uninstall InstallLab"
+                Description="Uninstalls the InstallLab Sample Application"
+                Target="[System64Folder]msiexec.exe"
+                Arguments="/x [ProductCode]"/>
+      <RegistryValue Root="HKCU" Key="Software\Avigilon\InstallLab" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+    </Component>
+
+    <Feature Id="ProductFeature" Title="InstallLab" Level="1">
+      <ComponentRef Id="TextFileComponent" />
+      <ComponentRef Id="UninstallShortcut" />
+    </Feature>
+  
+  </Product> 
+</Wix>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <!-- Directory 1 (Program Files) -->
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="InstallLab" />
+      </Directory>
+      <!-- Directory 2 (Start Menu) -->
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="InstallLabShortcuts" Name="InstallLab" />
+      </Directory>
+    </Directory>
+
+  </Fragment>
+</Wix>

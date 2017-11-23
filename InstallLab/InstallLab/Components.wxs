@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Fragment>
+
+    <!-- Component Represents a group of items that are install as a unit -->
+
+    <Component Id="TextFileComponent" Directory="INSTALLFOLDER">
+      <File Source="C:\Users\radha.bisht\Desktop\WixDemo\HelloWix.txt">
+
+        <!-- Create Shortcut in Start Menu -->
+        <Shortcut Id="InstallLabShortcut"
+                  Directory="InstallLabShortcuts"
+                  Name="InstallLab"
+                  Description="My Description"
+                  WorkingDirectory="INSTALLFOLDER"
+                  Advertise="yes" />
+      </File>
+      <!-- Delete Shortcut from Start Menu -->
+      <RemoveFolder Id="DeleteTheInstallLabShortcut"
+                    Directory="InstallLabShortcuts"
+                    On="uninstall" />
+    </Component>
+    
+	</Fragment>
+</Wix>
